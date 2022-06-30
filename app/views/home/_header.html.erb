@@ -17,14 +17,16 @@
             <%= link_to "Friends", friends_path, class:"nav-link" %>
         </li>
 
-        <li class="nav-item" >
-            <%= link_to "Add Friend", new_friend_path, class:"nav-link" %>
-        </li>
-
         <%# delete any duplicate add friends below %>
 
         <% if user_signed_in? %>
+
           <li class="nav-item" >
+            <%= link_to "Add Friend", new_friend_path, class:"nav-link" %>
+          </li>
+
+          <li class="nav-item" >
+          <%# workaround to make button_to look like a link_to, class removes the default background and border-color hides button border%>
               <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class:" btn nav-link", style:"border-color: #00000000" %>
           </li>
 
