@@ -6,6 +6,7 @@
         <th>Phone</th>
         <th>Email</th>
         <th>Twitter</th>
+        <th>User Id</th>
         <th>Show</th>
         <th>Edit</th>
         <th>Delete</th>
@@ -15,6 +16,8 @@
 
     <tbody>
       <% @friends.each do |friend| %>
+        <%# make friends lists private %>
+        <% if friend.user == current_user %>
 
         <tr class="align-middle">
           <td>
@@ -23,11 +26,12 @@
           <td><%= friend.phone %></td>
           <td><%= friend.twitter %></td>
           <td><%= friend.email %></td>
+          <td><%= friend.user_id %></td>
           <td><%= link_to "Show", friend %></td>
           <td><%= link_to "Edit", edit_friend_path(friend) %></td>
           <td><%= button_to "Delete", friend, method: :delete, class:"btn btn-danger" %></td>
         </tr>
-
+        <% end %>
        <%# <%= render "friend" %>
         <%# <p>
           <%= link_to "Show this friend", friend %>
