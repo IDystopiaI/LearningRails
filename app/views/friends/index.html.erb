@@ -1,4 +1,4 @@
-<%# class="table table-striped table-bordered table-hover" %>
+<% if user_signed_in? %>
   <table class="table table-striped table-bordered table-hover" >
     <thead class="table-dark">
       <tr>
@@ -6,31 +6,30 @@
         <th>Phone</th>
         <th>Email</th>
         <th>Twitter</th>
-        <th>User Id</th>
-        <th>Show</th>
-        <th>Edit</th>
-        <th>Delete</th>
-        <%# add delete  %>
+        <%# <th>User Id</th> %>
+        <%# <th>Show</th> %>
+        <%# <th>Edit</th> %>
+        <th></th>
+        <%# <th>Delete</th> %>
       </tr>
     </thead>
 
     <tbody>
       <% @friends.each do |friend| %>
+
         <%# make friends lists private %>
         <% if friend.user == current_user %>
 
-        <tr class="align-middle">
-          <td>
-            <%= link_to friend.first_name + ' ' + friend.last_name, friend %>
-          </td>
-          <td><%= friend.phone %></td>
-          <td><%= friend.twitter %></td>
-          <td><%= friend.email %></td>
-          <td><%= friend.user_id %></td>
-          <td><%= link_to "Show", friend %></td>
-          <td><%= link_to "Edit", edit_friend_path(friend) %></td>
-          <td><%= button_to "Delete", friend, method: :delete, class:"btn btn-danger" %></td>
-        </tr>
+          <tr class="align-middle">
+            <td><%= link_to friend.first_name + ' ' + friend.last_name, friend,  style:"text-decoration: none; color: #0e6ecd; font-weight: 600;" %></td>
+            <td><%= friend.phone %></td>
+            <td><%= friend.twitter %></td>
+            <td><%= friend.email %></td>
+            <%# <td><%= friend.user_id %><%#</td> %>
+            <%# <td><%= link_to "Show", friend %><%#</td> %>
+            <%# <td><%= link_to "Edit", edit_friend_path(friend) %><%#</td> %>
+            <td><%= button_to "Delete", friend, method: :delete, class:"btn btn-outline-danger btn-sm", data: { confirm: "Are you sure?" } %></td>
+          </tr>
         <% end %>
        <%# <%= render "friend" %>
         <%# <p>
@@ -38,5 +37,9 @@
         <%# </p> %>
       <% end %>
     </tbody>
-</table>
-<%= link_to "Add Friend", new_friend_path, class:"btn btn-primary" %>
+  </table>
+  <%= link_to "Add Friend", new_friend_path, class:"btn btn-primary" %>
+<% else %>
+  <h1>Friend App</h1>
+  <p>This is my first rails webpage</p>
+<% end %>
