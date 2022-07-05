@@ -9,15 +9,17 @@
     <%= @friend.phone %> |
     <%= @friend.twitter %>
   </p>
+
   <br>
   <%# <hr class="my-4"> %>
-  <p class=>
+  <div>
     <%# <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a> %>
     <%= link_to "Edit", edit_friend_path(@friend), class:"btn btn-success" %> 
     <%= link_to "Back", friends_path, class:"btn btn-primary" %>
-    <%= button_to "Delete", @friend, class:"btn btn-danger", method: :delete %>
-  </p>
+    <%= button_to "Delete", @friend, class:"btn btn-danger", method: :delete, onclick:"return confirm('Delete entry?')" %>
+  </div>
 </div>
+
 
 
 

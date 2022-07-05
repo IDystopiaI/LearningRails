@@ -28,7 +28,10 @@
             <%# <td><%= friend.user_id %><%#</td> %>
             <%# <td><%= link_to "Show", friend %><%#</td> %>
             <%# <td><%= link_to "Edit", edit_friend_path(friend) %><%#</td> %>
-            <td><%= button_to "Delete", friend, method: :delete, class:"btn btn-outline-danger btn-sm", data: { confirm: "Are you sure?" } %></td>
+            <%# deletion confirmation %>
+            <td><%= button_to "Delete", friend, class:"btn btn-outline-danger btn-sm", method: :delete, onclick:"return confirm('Delete entry?')" %></td>
+
+            <%# <td><%= button_to "Delete", friend, method: :delete, class:"btn btn-outline-danger btn-sm" %> <%# </td> %>
           </tr>
         <% end %>
        <%# <%= render "friend" %>
@@ -39,6 +42,8 @@
     </tbody>
   </table>
   <%= link_to "Add Friend", new_friend_path, class:"btn btn-primary" %>
+
+  <%# For Signed Out Users, a very basic alternate home page %>
 <% else %>
   <h1>Friend App</h1>
   <p>This is my first rails webpage</p>

@@ -5,7 +5,8 @@
 
 <br>
 
-<div>
+<div >
   <%= link_to "Show", @friend, class:"btn btn-secondary" %> 
+  <%= button_to "Delete", @friend, class:"btn btn-danger", method: :delete %>
   <%= link_to "Back", friends_path, class:"btn btn-primary" %>
 </div>

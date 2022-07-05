@@ -27,7 +27,7 @@
 
           <li class="nav-item" >
           <%# workaround to make button_to look like a link_to, class removes the default background and border-color hides button border%>
-              <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class:" btn nav-link", style:"border-color: #00000000" %>
+              <%= button_to "Sign Out", destroy_user_session_path, method: :delete , class:" btn nav-link", style:"border-color: #00000000" %>
           </li>
 
           <li class="nav-item" >
@@ -47,10 +47,11 @@
         
 
       </ul>
-      <form class="d-flex" role="search">
+      <%# no search implemented %>
+      <%# <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      </form> %>
     </div>
   </div>
 </nav>
